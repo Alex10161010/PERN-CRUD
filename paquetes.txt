@@ -1,0 +1,81 @@
+DEPENDENCIAS PRINCIPALES
+
+npm i
+express
+
+morgan
+me permite listar o ver por consola las peticiones que van llegando
+
+cors
+este modulo permite comunicar dos servidores en dos dominios distintos
+cuando trabajamo con una aplicacion web nosotros vamos a tener una aplicacion
+de baquen que podria estar trabajando en el puerto 5000 y otra de front
+en un localhost:3000 entonces tendriamos dos servidores que se esten comunicando
+
+PAQUETES QUE SOLO SE OCUPARAN EN EL DESARROLLO
+
+npm i <paquete> -D
+La opcion -D indica las que instalara una dependencia que solo la requerimos para
+desarrollo y que no son importantes para que nuestra aplicacion funcione
+
+nodemon
+Este modulo permite escucahar los cambios que hacemon en la aplicacion
+
+morgan
+Middleware del registrador de solicitudes HTTP
+
+2.- Crear una carpeta src>index.js
+Este se encaga de arrancar el servidor
+
+3.-Crear  src>routes>tasks.routes.js
+Dentro de la carpeta de rutas podremos un archivo tasks.routes.js que mostrara las diferentes rutas
+alas que el cliente podra solicitar desde el frontend
+
+4.-Crear src>controllers
+La carpeta controlador lo que permite es poder ejecutar funciones cuando una url sea visitada
+y dentro de esta crearemos un archivo que se llame
+
+5.-Crear un archivo de configuracion src>config.js
+Para variables de entorno para poder guardar variables para la conexion a la base de datos es
+un archivo llamado config.js
+
+6.-Crear un achivo src>db.js
+Para la conexion a la base de datos este pude tener varios nombres database.js| db.js|
+
+cuando queremos eliminar, agregar, atualizar hacemos uso de los metodos http
+get
+post
+put
+delete
+
+7.- npm i pg
+instalar un modulo que permite la conexion a la base de dsatos posgrest y ejecutar consultas
+
+
+8.- configuramos de conexion src>db.js
+const { Pool } = require('pg');
+const pool = new Pool({
+	user: 'postgres',
+	password: '',
+	host: 'localhost',
+	port: 5432,
+	database: 'tareasdb',
+});
+
+module.exports = pool;
+
+8.- creando la clase controlador
+
+
+9.- JSON
+Al pasar el request del un objecto json nos marca un error
+y es por que el frameware no entiende los objecto json
+hay que definirlo en index.js
+
+app.use(express.json());
+
+
+validaciones
+
+https://joi.dev/api/?v=17.5.0#checkpreferencesprefs
+https://express-validator.github.io/docs/
